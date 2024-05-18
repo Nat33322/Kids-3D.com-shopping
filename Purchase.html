@@ -34,7 +34,30 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
 <br><img src="charmander.png" alt="charmander model" hover="charmander" height="500" length="1000">
 <br>Charmander
 <br>STOCK: N/A
-<br><a href="Charmander purchase.html"><button type="button">Purchase</button></a>
+<form>
+<h3>Question 1</h3>
+<input type="radio" name="q1" id="q1a">
+<label for="q1a">Option 1</label>
+<input type="radio" name="q1" id="q1b">
+<label for="q1b">Option 2</label>
+<p class="answer" style="display:none;">q1b</p>
+<h3>Question 2</h3>
+<!-- Repeat radio inputs for question 2 -->
+<p class="answer" style="display:none;">q2a</p>
+<!-- Questions 3 and 4 -->
+<input type="submit">
+</form>
+<script>
+document.querySelector("form").addEventListener("submit", function(e){
+e.preventDefault();
+let score = 0;
+if(document.querySelector("#q1b").checked){
+score++;
+}
+// Check answers for other questions
+alert("Your score is " + score);
+})
+</script>
 </body>
 </html>
 
