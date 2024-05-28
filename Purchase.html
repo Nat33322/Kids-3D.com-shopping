@@ -54,16 +54,23 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
 document.querySelector("form").addEventListener("submit", function(e){
 e.preventDefault();
 let score = 0;
-if(document.querySelector("#q1b").checked){
+let correct = 0;
+if(document.querySelector("#q1c").checked){
 score++;
 }
-// Check answers for other questions
-alert("Your score is " + score + "/1");
+if(score==1){
+correct++;
+}
+<?php
+if($_POST["Message"]) {
+mail("njflock11@gmail.com", "Website quiz upload",
+$_POST[correct]. "From: njflock11@gmail.com");
+}
+?>
 })
 </script>
 
 <script>
-var 
 </script> 
 </body>
 </html>
