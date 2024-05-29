@@ -36,7 +36,6 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
 <br>Charmander
 <br>STOCK: N/A
 <form>
-<form action="emailhandler.php" method="post">
 <h3>Question 1</h3>
 <input type="radio" name="q1" id="q1a">
 <label for="q1a">Franklin Elemantary</label>
@@ -49,14 +48,15 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
 <!-- Repeat radio inputs for question 2 -->
 <p class="answer" style="display:none;">q2a</p>
 <!-- Questions 3 and 4 -->
-Name:<br>
-<input type="text" name="name"><br>
-Email:<br>
-<input type="email" name="email"><br>
-Message:<br>
-<textarea name="message"></textarea><br><br>
-<input type="submit" value="Submit">
-<input value="sumbit">
+</form>
+<form action="YOUR_SERVER_SIDE_ENDPOINT" method="post">
+  Name:<br>
+  <input type="text" name="name"><br>
+  Email:<br>
+  <input type="email" name="email"><br>
+  Message:<br>
+  <textarea name="message"></textarea><br><br>
+  <input type="submit" value="Submit">
 </form>
 <script>
 document.querySelector("form").addEventListener("submit", function(e){
