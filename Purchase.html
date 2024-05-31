@@ -74,8 +74,21 @@ correct++;
 }
 })
 </script>
-
+<span id="clock"></span>
 <script>
+(function () {
+
+  var clockElement = document.getElementById( "clock" );
+
+  function updateClock ( clock ) {
+    clock.innerHTML = new Date().toLocaleTimeString();
+  }
+
+  setInterval(function () {
+      updateClock( clockElement );
+  }, 1000);
+
+}());
 </script> 
 </body>
 </html>
