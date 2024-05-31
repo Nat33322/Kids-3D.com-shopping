@@ -82,10 +82,10 @@ const creationDate = new Date('2024-04-30T19:17:42Z'); // Use the actual creatio
 function displayAge() {
   const currentDate = new Date();
   const ageInMilliseconds = currentDate - creationDate;
-  const ageInYears = Math.floor(ageInMilliseconds / (365 * 24 * 60 * 60 * 1000));
+  const ageInDays = Math.floor(ageInMilliseconds / (24 * 60 * 60 * 1000));
   
   // Display the age in years
-  document.getElementById('age').textContent = `This content is ${ageInYears} years old.`;
+  document.getElementById('age').textContent = `This content is ${ageInDays} days old.`;
 }
 
 // Call the function when the window loads
