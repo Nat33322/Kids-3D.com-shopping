@@ -74,9 +74,21 @@ correct++;
 }
 })
 </script>
+ <script type="text/javascript"> 
+  function display_c(){
+  var refresh=1000; // Refresh rate in milli seconds
+  mytime=setTimeout('display_ct()',refresh)
+  }
+  
+  function display_ct() {
+  var x = new Date()
+  var x1=x.toISOString();// changing the display to UTC string
+  document.getElementById('ct').innerHTML = x1;
+  tt=display_c();
+   }
 <script>
 // Set the creation date of your static HTML content
-const creationDate = new Date('2024-05-21T23:38:25.748Z'); // Use the actual creation date in ISO format
+const creationDate = new Date(<span id='ct' ></span>); // Use the actual creation date in ISO format
 
 // Function to calculate the age and display it
 function displayAge() {
