@@ -74,38 +74,23 @@ correct++;
 }
 })
 </script>
-<div id="time-ago"></div>
-
 <script>
-  document.getElementById('time-ago').textContent = timeSince(new Date('2024-05-30T19:14:27Z'));
-</script>
-<script>
-function timeSince(date) {
-  var seconds = Math.floor((new Date() - date) / 1000);
-  var interval = Math.floor(seconds / 31536000);
+// Set the creation date of your static HTML content
+const creationDate = new Date('2024-05-30T19:17:42Z'); // Use the actual creation date in ISO format
 
-  if (interval > 1) {
-    return interval + " years";
-  }
-  interval = Math.floor(seconds / 2592000);
-  if (interval > 1) {
-    return interval + " months";
-  }
-  interval = Math.floor(seconds / 86400);
-  if (interval >= 1) {
-    return interval + " days";
-  }
-  interval = Math.floor(seconds / 3600);
-  if (interval >= 1) {
-    return interval + " hours";
-  }
-  interval = Math.floor(seconds / 60);
-  if (interval >= 1) {
-    return interval + " minutes";
-  }
-  return Math.floor(seconds) + " seconds";
+// Function to calculate the age and display it
+function displayAge() {
+  const currentDate = new Date();
+  const ageInMilliseconds = currentDate - creationDate;
+  const ageInYears = Math.floor(ageInMilliseconds / (365 * 24 * 60 * 60 * 1000));
+  
+  // Display the age in years
+  document.getElementById('age').textContent = `This content is ${ageInYears} years old.`;
 }
-</script> 
+
+// Call the function when the window loads
+window.onload = displayAge;
+</script>
 </body>
 </html>
 
