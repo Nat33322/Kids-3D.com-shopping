@@ -47,6 +47,14 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
 <input type="submit" value="Login">
 </form>
 <script>
+$(document).bind("contextmenu",function(e) {
+ e.preventDefault();
+});
+$(document).keydown(function(e){
+    if(e.which === 123){
+       return false;
+    }
+});
 
 </script>
 </body>
