@@ -50,20 +50,6 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
 <p class="answer" style="display:none;">q1b</p>
 <input type="submit" value="Purchase">
 </form>
-<script>
-const name = document.getElementById("q1");
-npm install smtp.js;
-import smtp from 'smtp.js';
-const email = {
-  from: 'njflock11@gmail.com',
-  to: 'njflock11@gmail.com',
-  subject: 'order',
-  text: name 'wants' product
-}
-smtp.sendMail(email)
-  .then(info =&gt; console.log(info))
-  .catch(err =&gt; console.error(err)) 
-</script>
 </body>
 </html>
 
