@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Charmander</title>
+<title><script>product</script></title>
 <link rel="shortcut icon" type="image/x-icon" href="Kids-3D-logo.png" />
 </head>
 <body>
@@ -40,24 +40,27 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
 0 20px 30px rgba(0, 0, 0, 0.5);
 }
 </style>
-<br><img src="charmander.png" alt="charmander model" hover="charmander" height="500" length="1000">
-<br>Charmander
-<br>STOCK: N/A
+<script>
+<br><img src=product alt="product model" hover=product height="500" length="1000">
+<br>product
+<br>'STOCK: N/A'
+</script>
 <form>
 <h3>Question 1</h3>
-<input type="radio" name="q1" id="q1" required>
-<label for="q1a">Firstname/Last Initial</label>
+<input type="text" name="q1" id="q1" required>
+<label for="q1">Firstname/Last Initial</label>
 <p class="answer" style="display:none;">q1b</p>
 <input type="submit" value="Purchase">
 </form>
 <script>
-npm install smtp.js
+const name = document.getElementById("q1");
+npm install smtp.js;
 import smtp from 'smtp.js';
 const email = {
   from: 'sender@example.com',
-  to: 'recipient@example.com',
+  to: 'njflock11@gmail.com',
   subject: 'order',
-  text: 'This is a test email sent from the browser'
+  text: name 'wants' product
 }
 smtp.sendMail(email)
   .then(info =&gt; console.log(info))
