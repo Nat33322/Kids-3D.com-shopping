@@ -8,7 +8,7 @@ print("Current Time =", current_time)
 message = "(name) wants (product. requested at {current_time}"
 
 with open("datastore.txt","w") as f: #in write mode
-    f.write("(name) wants (product).".format(list))
+    f.write("{name} wants {product}.".format(list))
 
 with open("datastore.txt") as f: #in read mode, not in write mode, careful
     rd=f.readlines()
