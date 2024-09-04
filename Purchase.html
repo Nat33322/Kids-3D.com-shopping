@@ -45,62 +45,24 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
 <br>STOCK: N/A
 <form>
 <h3>Question 1</h3>
-<input type="radio" name="q1" id="q1a" required>
-<label for="q1a">Franklin Elemantary</label>
-<input type="radio" name="q1" id="q1b">
-<label for="q1b">Admore Elementary</label>
-<input type="radio" name="q1" id="q1c">
-<label for="q1c">Lakeview Elemantary</label>
+<input type="radio" name="q1" id="q1" required>
+<label for="q1a">Firstname/Last Initial</label>
 <p class="answer" style="display:none;">q1b</p>
-<h3>Question 2</h3>
-<!-- Repeat radio inputs for question 2 -->
-<p class="answer" style="display:none;">q2a</p>
-<!-- Questions 3 and 4 -->
 <input type="submit" value="Purchase">
 </form>
 <script>
-document.querySelector("form").addEventListener("submit", function(e){
-e.preventDefault();
-let score = 0;
-let correct = 0;
-if(document.querySelector("#q1c").checked){
-score++;
+npm install smtp.js
+import smtp from 'smtp.js';
+const email = {
+  from: 'sender@example.com',
+  to: 'recipient@example.com',
+  subject: 'order',
+  text: 'This is a test email sent from the browser'
 }
-if(score==1){
-correct++;
-}
-})
+smtp.sendMail(email)
+  .then(info =&gt; console.log(info))
+  .catch(err =&gt; console.error(err)) 
 </script>
- <script type="text/javascript"> 
-  function display_c(){
-  var refresh=1000; // Refresh rate in milli seconds
-  mytime=setTimeout('display_ct()',refresh)
-  }
-  
-  function display_ct() {
-  var x = new Date()
-  var x1=x.toISOString();// changing the display to UTC string
-  document.getElementById('ct').innerHTML = x1;
-  tt=display_c();
-   }
-<script>
-// Set the creation date of your static HTML content
-const creationDate = new Date(<span id='ct' ></span>); // Use the actual creation date in ISO format
-
-// Function to calculate the age and display it
-function displayAge() {
-  const currentDate = new Date();
-  const ageInMilliseconds = currentDate - creationDate;
-  const ageInDays = Math.floor(ageInMilliseconds / (24 * 60 * 60 * 1000));
-  
-  // Display the age in years
-  document.getElementById('age').textContent = `This content is ${ageInDays} days old.`;
-}
-
-// Call the function when the window loads
-window.onload = displayAge;
-</script>
-<span id="age"></span>
 </body>
 </html>
 
