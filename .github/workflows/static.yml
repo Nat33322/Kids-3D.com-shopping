@@ -41,3 +41,13 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Inject Secrets into HTML
+        env:
+          LOGIN_PASS: ${{ secrets.LOGIN_PASS }}
+        run: |
+          # Create a .env file for use in your site
+          echo "LOGIN_PASS=${LOGIN_PASS}" >> .env
+
+          # Replace placeholders in HTML file with actual secrets
+          sed -i "s/LOGIN_PASS_PLACEHOLDER/${LOGIN_PASS}/g" login.html
+
