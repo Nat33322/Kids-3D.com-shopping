@@ -1,7 +1,12 @@
+# Ignore all Python, text, and gitignore files
 *.py
 *.txt
 *.gitignore
+
+# Ignore all HTML files except specific ones
 *.html
 !index.html
 !purchase.html
+
+# Ignore all PNG images
 *.png
