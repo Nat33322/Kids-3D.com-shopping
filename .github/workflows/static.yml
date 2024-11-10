@@ -49,5 +49,5 @@ jobs:
           echo "LOGIN_PASS=${LOGIN_PASS}" >> .env
 
           # Replace placeholders in HTML file with actual secrets
-          sed -i "s/LOGIN_PASS_PLACEHOLDER/${LOGIN_PASS}/g" login.html
+          sed -i "s/896ce379-7eb0-455e-a13b-d020162fc823/${LOGIN_PASS}/g" login.html
 
