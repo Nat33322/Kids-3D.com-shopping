@@ -1,1 +1,7 @@
 *.py
+*.txt
+*.gitignore
+*.html
+!index.html
+!purchase.html
+*.png
