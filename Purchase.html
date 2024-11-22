@@ -47,12 +47,12 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
 <input type="text" name="q1" id="q1" required>
 <label for="q1">Firstname/Last Initial</label>
 <p class="answer" style="display:none;">q1b</p>
-<br><input type="submit" Value="Submit">
+<br><input type="Submit" Value="Submit">
 </form>
 <script>
 const form = document.querySelector('orderForm');
 
-form.addEventListener('submit', (event) => {
+form.addEventListener('Submit', (event) => {
   event.preventDefault();  // Prevent form from submitting normally
 
   const formData = new FormData(form);
