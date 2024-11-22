@@ -1,17 +1,23 @@
 .image-container {
-  position: relative;
-  display: inline-block;
+  position: relative; /* Make the container a positioning context */
+  display: inline-block; /* Optional, adjusts to the image size */
 }
 
 .image-container img {
-  display: block;
-  width: 100%;
-  height: auto;
+  display: block; /* Removes extra space below the image */
+  width: 100%; /* Optional, makes the image responsive */
+  height: auto; /* Optional, keeps the aspect ratio */
 }
 
-.overlay-text {
+.text-overlay {
   position: absolute;
-  top: 90%; 
-  left: 50%; 
-  color: #000000; 
-  font-size: 20px;
+  bottom: 0; /* Aligns the text to the bottom */
+  left: 50%; /* Moves to the horizontal center */
+  transform: translateX(-50%); /* Centers text horizontally */
+  background-color: rgba(0, 0, 0, 0.5); /* Adds a semi-transparent background */
+  color: white; /* Text color */
+  padding: 10px; /* Adds spacing around the text */
+  font-size: 16px; /* Adjust text size as needed */
+  text-align: center; /* Centers text if it spans multiple lines */
+  width: 100%; /* Optional, spans the width of the container */
+}
