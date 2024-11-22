@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(orderData),
-        mode: 'cors',  // Ensure that the server allows CORS
+        mode: 'no-cors',  // Ensure that the server allows CORS
       })
       .then(response => response.json())
       .then(data => {
