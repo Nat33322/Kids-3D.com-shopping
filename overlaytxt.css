@@ -13,9 +13,7 @@
   position: absolute;
   top: 5%; 
   left: 50%; 
-  transform: translate(-50%, -50%); 
-  background-color: #000000; 
-  color: #fff; 
+  color: #000000; 
   padding: 10px 20px; 
   font-size: 20px; 
   text-align: bottom;
