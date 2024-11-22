@@ -47,18 +47,17 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
 <input type="text" name="q1" id="q1" required>
 <label for="q1">Firstname/Last Initial</label>
 <p class="answer" style="display:none;">q1b</p>
-<br><input type="Submit" Value="Submit">
+<br><input type="submit" Value="Submit">
 </form>
 <script>
-document.getElementById('orderForm').addEventListener('Submit', async function(event) {
+document.getElementById('orderForm').addEventListener('submit', async function(event) {
     event.preventDefault();
 
     const name = document.getElementById('q1').value;
-    const order = product;
 
     const orderData = {
         name: name,
-        orderDetails: order,
+        orderDetails: product,
         timestamp: new Date().toISOString()
     };
 
@@ -71,13 +70,14 @@ document.getElementById('orderForm').addEventListener('Submit', async function(e
 
         if (response.ok) {
             const message = await response.text();
-            alert(message);
+            console.log(message);
+            alert('Order submitted successfully!');
         } else {
-            alert('Failed to save order.');
+            alert('Failed to save order. Server returned an error.');
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Error connecting to the local server.');
+        alert('Failed to connect to the server.');
     }
 });
 </script>
