@@ -43,8 +43,7 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
 <script><br><img src="('${product}').png" alt="product model" hover=product height="500" length="1000"></script>
 <br><script>var product</script>
 <br>STOCK: N/A
-<form>
-<h3>Question 1</h3>
+<form id="orderForm">
 <input type="text" name="q1" id="q1" required>
 <label for="q1">Firstname/Last Initial</label>
 <p class="answer" style="display:none;">q1b</p>
@@ -54,7 +53,37 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
 const name = document.getElementById("q1"); 
 const nameValue = name.value;
 var pythonScriptPath = "datastore.py";
-subprocess.run(["python", pythonScriptPath]);
+subprocess.run(["python", pythonScriptPath])
+document.getElementById('orderForm').addEventListener('Submit', async function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('q1').value;
+    const order = product;
+
+    const orderData = {
+        name: name,
+        orderDetails: order,
+        timestamp: new Date().toISOString()
+    };
+
+    try {
+        const response = await fetch('http://localhost:30957', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderData)
+        });
+
+        if (response.ok) {
+            const message = await response.text();
+            alert(message);
+        } else {
+            alert('Failed to save order.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error connecting to the local server.');
+    }
+});
 </script>
 </body>
 </html>
