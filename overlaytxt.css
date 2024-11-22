@@ -1,22 +1,20 @@
 .image-container {
   position: relative; /* Make the container a positioning context */
-  display: inline-block; /* Optional, adjusts to the image size */
+  display: inline-block; /* Keeps the container size fixed to the image */
 }
 
 .image-container img {
   display: block; /* Removes extra space below the image */
-  width: 100%; /* Optional, makes the image responsive */
-  height: auto; /* Optional, keeps the aspect ratio */
 }
 
-.overlay-text {
+.text-overlay {
   position: absolute;
-  bottom: 0; /* Aligns the text to the bottom */
-  left: 50%; /* Moves to the horizontal center */
-  transform: translateX(-50%); /* Centers text horizontally */
-  color: white; /* Text color */
-  padding: 10px; /* Adds spacing around the text */
-  font-size: 16px; /* Adjust text size as needed */
-  text-align: center; /* Centers text if it spans multiple lines */
-  width: 100%; /* Optional, spans the width of the container */
+  bottom: 10px; /* Set distance from the bottom edge of the image */
+  left: 50%; /* Align horizontally to the center */
+  transform: translateX(-50%); /* Adjust to keep it centered */
+  color: white; /* Optional, adjust text color */
+  font-size: 16px; /* Set fixed text size */
+  font-weight: bold; /* Optional, for better visibility */
+  white-space: nowrap; /* Prevent text from wrapping */
+  pointer-events: none; /* Prevent text from being interactive, optional */
 }
