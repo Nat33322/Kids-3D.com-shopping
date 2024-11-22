@@ -49,50 +49,27 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
 <br><input type="Submit" Value="Submit">
 </form>
 <script>
-// Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function () {
-  const form = document.querySelector('#orderForm'); // Get the form element by ID
-
-  // Check if the form exists before adding the event listener
-  if (form) {
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();  // Prevent the default form submission
-
-      const formData = new FormData(form);
-      const orderData = {};
-
-      // Convert form data to an object
-      formData.forEach((value, key) => {
-        orderData[key] = value;
-      });
-
-      // Log the order data for testing
-      console.log('Form data:', orderData);
-
-      // Send the order data via fetch (replace with your server URL)
-      fetch('http://localhost:8000/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(orderData),
-        mode: 'no-cors',  // Ensure that the server allows CORS
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Order sent successfully:', data);
-        // Optionally display a success message or reset the form
-        alert('Order submitted successfully!');
-      })
-      .catch(error => {
-        console.error('Error submitting order:', error);
-        alert('Error submitting order!');
-      });
-    });
-  } else {
-    console.error('Order form not found!');
-  }
-});
+fetch('http://localhost:8000/', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(orderData), // Send form data as JSON
+})
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();  // Parse JSON response
+  })
+  .then(data => {
+    console.log('Order submitted successfully:', data);
+    alert('Order submitted successfully!');
+  })
+  .catch(error => {
+    console.error('Error submitting order:', error);
+    alert('Error submitting order!');
+  });
 </script>
 </body>
 </html>
