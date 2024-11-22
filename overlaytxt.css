@@ -9,7 +9,7 @@
   height: auto; /* Optional, keeps the aspect ratio */
 }
 
-.text-overlay {
+.overlay-text {
   position: absolute;
   bottom: 0; /* Aligns the text to the bottom */
   left: 50%; /* Moves to the horizontal center */
