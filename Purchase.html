@@ -50,35 +50,33 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
 <br><input type="submit" Value="Submit">
 </form>
 <script>
-document.getElementById('orderForm').addEventListener('submit', async function(event) {
-    event.preventDefault();
+const form = document.querySelector('orderForm');
 
-    const name = document.getElementById('q1').value;
+form.addEventListener('submit', (event) => {
+  event.preventDefault();  // Prevent form from submitting normally
 
-    const orderData = {
-        name: name,
-        orderDetails: product,
-        timestamp: new Date().toISOString()
-    };
+  const formData = new FormData(form);
+  const orderData = {};
 
-    try {
-        const response = await fetch('http://localhost:8000', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(orderData)
-        });
+  formData.forEach((value, key) => {
+    orderData[key] = value;
+  });
 
-        if (response.ok) {
-            const message = await response.text();
-            console.log(message);
-            alert('Order submitted successfully!');
-        } else {
-            alert('Failed to save order. Server returned an error.');
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Failed to connect to the server.');
-    }
+  // Create fetch request with no-cors mode
+  fetch('http://localhost:8000/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(orderData),
+    mode: 'no-cors',  // Disable CORS checks
+  })
+  .then(response => {
+    console.log("Request sent successfully, but no response is available.");
+  })
+  .catch(error => {
+    console.error("Error sending request:", error);
+  });
 });
 </script>
 </body>
