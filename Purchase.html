@@ -49,33 +49,24 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
 <br><input type="Submit" Value="Submit">
 </form>
 <script>
-    // Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function () {
-  const form = document.querySelector('#orderForm'); // Get the form element by ID
+// Add the submit event listener
+document.getElementById("orderForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent the form from submitting the default way
 
-  // Check if the form exists before adding the event listener
-  if (form) {
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();  // Prevent the default form submission
+  // Get the form data
+  const orderData = {
+    name: document.getElementById('name').value,
+    timestamp: new Date().toISOString()  // Add timestamp
+  };
 
-      const formData = new FormData(form);
-      const orderData = {};
-
-      // Convert form data to an object
-      formData.forEach((value, key) => {
-        orderData[key] = value;
-      });
-
-      // Log the order data for testing
-      console.log('Form data:', orderData);
-
-fetch('http://localhost:8000/', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(orderData), // Send form data as JSON
-})
+  // Send data using fetch API
+  fetch('http://localhost:8000/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(orderData),  // Send form data as JSON
+  })
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -90,6 +81,8 @@ fetch('http://localhost:8000/', {
     console.error('Error submitting order:', error);
     alert('Error submitting order!');
   });
+});
+
 </script>
 </body>
 </html>
