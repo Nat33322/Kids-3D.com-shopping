@@ -14,7 +14,6 @@
   bottom: 0; /* Aligns the text to the bottom */
   left: 50%; /* Moves to the horizontal center */
   transform: translateX(-50%); /* Centers text horizontally */
-  background-color: rgba(0, 0, 0, 0.5); /* Adds a semi-transparent background */
   color: white; /* Text color */
   padding: 10px; /* Adds spacing around the text */
   font-size: 16px; /* Adjust text size as needed */
