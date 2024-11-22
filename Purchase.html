@@ -66,6 +66,7 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(orderData),  // Send form data as JSON
+    mode: "no-cors",
   })
   .then(response => {
     if (!response.ok) {
