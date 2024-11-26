@@ -59,8 +59,8 @@
 
 .bottom-box {
     text-align: center; /* Center text */
-  color: white; /* White text */
-  font-size: 24px; /* Adjust font size */
+  color: green; /* White text */
+  font-size: 10px; /* Adjust font size */
   padding: 10px;
   background-color: rgb(0, 0, 0); /* Semi-transparent background */
   border-radius: 5px;
@@ -92,7 +92,12 @@ h1 {
 <body>
 <div style="overflow-y: scroll; height: 4000px; overflow-y: hidden; position: relative;">
 <h1><span style="color: red">K</span><span style="color: orange">i</span><span style="color: gold">d</span><span style="color: lime">s</span><span style="color: blue">-</span><span style="color: indigo">3</span><span style="color: purple">D</span></h1><title><span style="color: red">K</span><span style="color: orange">i</span><span style="color: gold">d</span><span style="color: lime">s</span><span style="color: blue">-</span><span style="color: indigo">3</span><span style="color: purple">D</span></title>
-<div style="overflow-x: scroll; length: 3000px; overflow-x: hidden;">
+  <input
+    type="text"
+    id="search-bar"
+    placeholder="Search for a product..."
+  />
+<div style="overflow-x: scroll; length: 3000px; overflow-x: hidden; position: relative;" id="product-container">
   <a href="Purchase.html">
   <button id="charmander" class="product">
     <div class="image-container" id="content">
@@ -109,9 +114,30 @@ if(document.getElementById('charmander').clicked == true)
    const productselected = "Charmander"
 }
 </script>
+<script>
+    // Grab the search bar and products
+    const searchBar = document.getElementById('search-bar');
+    const products = document.querySelectorAll('#product-container .product');
+
+    // Add an input listener to filter products
+    searchBar.addEventListener('input', (e) => {
+      const searchText = e.target.value.toLowerCase();
+
+      products.forEach((product) => {
+        const productName = product.querySelector('.text-overlay').innerText.toLowerCase();
+
+        // Check if product name matches search text
+        if (productName.includes(searchText)) {
+          product.classList.remove('hidden'); // Show product
+        } else {
+          product.classList.add('hidden'); // Hide product
+        }
+      });
+    });
+  </script>
 <div class="bottom-box">
-<br>If you want us to sell a product we're not already selling <a href="https://docs.google.com/forms/d/1TCJfudEbrAHJ5CreiEG-nOKQk4aJjmuoz8W2c_fvNLY/"><button>Click here!</button></a>
-</div>
+<br><a href="https://docs.google.com/forms/d/1TCJfudEbrAHJ5CreiEG-nOKQk4aJjmuoz8W2c_fvNLY/">Product Suggestions</a>
+<br></div>
 </body>
 </html>
 
