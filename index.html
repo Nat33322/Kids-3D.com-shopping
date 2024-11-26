@@ -58,7 +58,7 @@
 }
 
 .bottom-box {
-    text-align: left; /* Center text */
+  text-align: left; /* Center text */
   color: green; /* White text */
   font-size: 15px; /* Adjust font size */
   padding: 10px;
@@ -68,6 +68,26 @@
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+#search-bar {
+  margin: 20px 0;
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.hidden {
+  display: none;
+}
+
+#product-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll; /* Allow horizontal scrolling for the product list */
+  white-space: nowrap; /* Prevent content from wrapping */
+  padding: 20px;
+  border: 1px solid #ccc;
 }
   
 body {
