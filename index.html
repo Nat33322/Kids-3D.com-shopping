@@ -10,18 +10,19 @@
 <style>
 .product {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  flex-direction: column; /* Stack the image and text vertically */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
   width: 500px;
   height: 525px;
   border-radius: 10%;
-  position: absolute; /* Make button's position relative to use absolute positioning for text overlay */
   background-color: #f5f5f5; /* Button background color */
   border: none; /* Remove default border */
+  padding: 0; /* Remove any default padding */
+  box-sizing: border-box; /* Make sure padding doesn't affect the layout */
 }
 
 #content {
-  position: relative;
   width: 100%; /* Make it take up the full width of the button */
   height: 100%; /* Make it take up the full height of the button */
   display: flex;
@@ -30,20 +31,22 @@
 }
 
 #content img {
-  width: 100%; /* Make image fill the container */
-  height: auto; /* Keep image's aspect ratio intact */
+  width: 100%; /* Make image take up the full width of the container */
+  height: 100%; /* Make image fill the height as well */
+  object-fit: cover; /* Ensures image covers the area without distortion */
   border-radius: 10%; /* Match button's rounded corners */
 }
 
 .text-overlay {
-  position: absolute;
-  bottom: 10px; /* Position text at the bottom of the button */
-  left: 50%; /* Center text horizontally */
-  transform: translateX(-50%); /* Offset to center text */
+  text-align: center; /* Center text */
   color: white; /* White text */
   font-size: 24px; /* Adjust font size */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Text shadow for better visibility */
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  border-radius: 5px;
+  margin-top: 10px; /* Add some space between the image and the text */
 }
+
 body {
   background: grey;
 }
