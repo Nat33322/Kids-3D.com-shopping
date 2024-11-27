@@ -40,19 +40,9 @@
 .text-overlay {
   text-align: center; /* Center text */
   color: white; /* White text */
-  font-size: 24px; /* Adjust font size */
+  font-size: 18px; /* Adjust font size */
   padding: 10px;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  border-radius: 5px;
-  margin-top: 10px; /* Add some space between the image and the text */
-}
-  
-.text-overlay {
-  text-align: center; /* Center text */
-  color: white; /* White text */
-  font-size: 24px; /* Adjust font size */
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
   border-radius: 5px;
   margin-top: 10px; /* Add some space between the image and the text */
 }
@@ -122,7 +112,7 @@ h1 {
   <button id="charmander" class="product">
     <div class="image-container" id="content">
       <img src="Charmander.png" alt="Charmander model" hover="Charmander">
-      <div class="text-overlay">Charmander</div>
+      <div class="text-overlay">Charmander $0.25</div>
     </div>
   </button>
 </a>
@@ -130,7 +120,39 @@ h1 {
   <button id="impossible-spiral" class="product">
     <div class="image-container" id="content">
       <img src="Placeholder.png" alt="Sprial cone" hover="Impossible Spiral">
-      <div class="text-overlay">Impossible Spiral</div>
+      <div class="text-overlay">Impossible Spiral $3</div>
+    </div>
+  </button>
+</a>
+  <a href="Purchase.html">
+  <button id="dragon" class="product">
+    <div class="image-container" id="content">
+      <img src="Placeholder.png" alt="Dragon" hover="Dragon">
+      <div class="text-overlay">Dragon $5</div>
+    </div>
+  </button>
+</a>
+  <a href="Purchase.html">
+  <button id="spinning-rings" class="product">
+    <div class="image-container" id="content">
+      <img src="Placeholder.png" alt="Spinning Rings" hover="Spinning Rings">
+      <div class="text-overlay">Spinning Rings $3</div>
+    </div>
+  </button>
+</a>
+  <a href="Purchase.html">
+  <button id="infinity-cube" class="product">
+    <div class="image-container" id="content">
+      <img src="Placeholder.png" alt="Infinity Cube" hover="Infinity Cube">
+      <div class="text-overlay">Infinity Cube $3</div>
+    </div>
+  </button>
+</a>
+  <a href="Purchase.html">
+  <button id="" class="product">
+    <div class="image-container" id="content">
+      <img src="Placeholder.png" alt="Sprial cone" hover="Impossible Spiral">
+      <div class="text-overlay">Elephant $35</div>
     </div>
   </button>
 </a>
@@ -139,7 +161,7 @@ h1 {
 <script>
 if(document.getElementById('charmander').clicked == true)
 {
-   const productselected = "Charmander"
+  localStorage.setItem("productselected", "Charmander")
 }
 </script>
 <script>
