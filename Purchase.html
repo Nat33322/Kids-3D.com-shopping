@@ -50,6 +50,8 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
 <form id="orderForm">
 <input type="text" name="q1" id="q1" required>
 <label for="q1">Firstname/Last Initial</label>
+<select size="10">
+    <option></option>
 <p class="answer" style="display:none;">q1b</p>
 <br><input type="Submit" Value="Submit">
 </form>
@@ -61,8 +63,9 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
   // Get the form data
   const orderData = {
     name: document.getElementById('q1').value,
-    order: localStorage.getIem("productselected")
-    timestamp: new Date().toISOString()  // Add timestamp
+    order: localStorage.getIem("productselected"),
+    color: ,
+    timestamp: new Date().toISOString(),  // Add timestamp
   };
 
   // Send data using fetch API
