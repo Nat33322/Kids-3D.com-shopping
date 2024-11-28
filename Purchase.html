@@ -50,21 +50,22 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
 <form id="orderForm">
 <input type="text" name="q1" id="q1" required>
 <label for="q1">Firstname/Last Initial</label>
-<select size="10">
+<select size="10" id="q2">
     Standards:
-    <option>Blue</option>
-    <option>Red</option>
-    <option>Green</option>
-    <option>Black</option>
-    <option>Yellow</option>
-    <option>Purple</option>
-    <option>Orange</option>
-    <option>Grey</option>
+    <option value="blue">Blue</option>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+    <option value="black">Black</option>
+    <option value="yellow">Yellow</option>
+    <option value="purple">Purple</option>
+    <option value="orange">Orange</option>
+    <option value="grey">Grey</option>
     Specials (Cost is higher):
-    <option>Galaxy</option>
-    <option>Glow-in-the-dark</option>
-    <option>Red and Blue Silk</option>
+    <option value="galaxy">Galaxy</option>
+    <option value="gitd">Glow-in-the-dark</option>
+    <option value="rabs">Red and Blue Silk</option>
 </select>
+<label for="q2">Color: </label>
 <p class="answer" style="display:none;">q1b</p>
 <br><input type="Submit" Value="Submit">
 </form>
@@ -77,7 +78,7 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
   const orderData = {
     name: document.getElementById('q1').value,
     order: localStorage.getIem("productselected"),
-    color: ,
+    color: document.getElementById('q2').value,
     timestamp: new Date().toISOString(),  // Add timestamp
   };
 
