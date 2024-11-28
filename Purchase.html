@@ -48,8 +48,8 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
     const extraproductinfo = localStorage.getItem("productextrainfo");
     
     document.getElementById("product-image").src = productselected + ".png";
-    document.getElementById("productname").text = productselected
-    document.getElementById("productinfo").text = extraproductinfo
+    document.getElementById("productname").textContent = productselected
+    document.getElementById("productinfo").textContent = extraproductinfo
     //change stuff
 </script>
 <form id="orderForm">
