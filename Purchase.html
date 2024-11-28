@@ -41,11 +41,16 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
 }
 </style>
 <br><img id="product-image" src="" alt="product model" hover=product height="500" length="1000">
+<br><span id="productname"></span>
+<br><br>Extra info about this product: <span id="productinfo"></span>
 <script>
     const productselected = localStorage.getItem("productselected");
-
+    const extraproductinfo = localStorage.getItem("productextrainfo");
+    
     document.getElementById("product-image").src = productselected + ".png";
-    //change img
+    document.getElementById("productname").text = productselected
+    document.getElementById("productinfo").text = extraproductinfo
+    //change stuff
 </script>
 <form id="orderForm">
 <input type="text" name="q1" id="q1" required>
