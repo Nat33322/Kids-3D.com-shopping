@@ -61,6 +61,7 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
   // Get the form data
   const orderData = {
     name: document.getElementById('q1').value,
+    order: localStorage.getIem("productselected")
     timestamp: new Date().toISOString()  // Add timestamp
   };
 
