@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>product</title>
+<link rel="shortcut icon" type="image/x-icon" href="Kids-3D-logo.png" />
+</head>
+<body>
+<style>
+    #content {
+        position: relative;
+    }
+    #content img {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+</style>
+
+<div style="overflow-y: scroll; height: 4000px; overflow-y: hidden;">
+<h1><span style="color: red">K</span><span style="color: orange">i</span><span style="color: gold">d</span><span style="color: lime">s</span><span style="color: blue">-</span><span style="color: indigo">3</span><span style="color: purple">D</span></h1><title><span style="color: red">K</span><span style="color: orange">i</span><span style="color: gold">d</span><span style="color: lime">s</span><span style="color: blue">-</span><span style="color: indigo">3</span><span style="color: purple">D</span>™</title>
+<style>
+body {
+background: grey;
+}
+
+h1 {
+margin: 0px auto;
+color: white;
+text-align: center;
+font-size: 8em;
+font-family: Arial, Helvetica, sans-serif;
+text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
+0 3px 0 #ccc, 0 4px 0 #ccc,
+0 5px 0 #ccc, 0 6px 0 #ccc,
+0 7px 0 #ccc, 0 8px 0 #ccc,
+0 9px 0 #ccc, 0 10px 0 #ccc,
+0 11px 0 #ccc, 0 12px 0 #ccc,
+0 20px 30px rgba(0, 0, 0, 0.5);
+}
+</style>
+<br><img id="product-image" src="" alt="product model" hover=product height="500" length="1000">
+<br><span id="productname"></span>
+<br>Extra info about this product: <span id="productinfo"></span>
+<script>
+    const productselected = localStorage.getItem("productselected");
+    const extraproductinfo = localStorage.getItem("productextrainfo");
+    
+    document.getElementById("product-image").src = productselected + ".png";
+    document.getElementById("productname").textContent = productselected
+    document.getElementById("productinfo").textContent = extraproductinfo
+    //change stuff
+</script>
+<br><br><form id="orderForm">
+<input type="text" name="q1" id="q1" required>
+<label for="q1">Firstname/Last Initial</label>
+<br><label for="q2">Color: </label>
+<select id="q2">
+    Standards:
+    <option value="blue">Blue</option>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+    <option value="black">Black</option>
+    <option value="yellow">Yellow</option>
+    <option value="purple">Purple</option>
+    <option value="orange">Orange</option>
+    <option value="grey">Grey</option>
+    Specials (Cost is higher):
+    <option value="galaxy">Galaxy</option>
+    <option value="gitd">Glow-in-the-dark</option>
+    <option value="rabs">Red and Blue Silk</option>
+</select>
+<p class="answer" style="display:none;">q1b</p>
+<br><input type="Submit" Value="Submit">
+</form>
+<script>
+// Add the submit event listener
+document.getElementById("orderForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent the form from submitting the default way
+
+  // Get the form data
+  const orderData = {
+    name: document.getElementById('q1').value,
+    order: localStorage.getItem("productselected"),
+    color: document.getElementById('q2').value,
+    timestamp: new Date().toISOString(),  // Add timestamp
+  };
+
+  // Send data using fetch API
+  fetch('http://50.35.63.97:62134', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(orderData),  // Send form data as JSON
+    "Access-Control-Allow-Origin":"*"
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();  // Parse JSON response
+  })
+  .then(data => {
+    console.log('Order submitted successfully:', data);
+    alert('Order submitted successfully!');
+  })
+  .catch(error => {
+    console.error('Error submitting order:', error);
+    alert('Error submitting order!');
+  });
+});
+
+</script>
+</body>
+</html>
 
