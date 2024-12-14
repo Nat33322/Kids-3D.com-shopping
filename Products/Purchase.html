@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>product</title>
-<link rel="shortcut icon" type="image/x-icon" href="Kids-3D-logo.png" />
+<link rel="shortcut icon" type="image/x-icon" href="../Kids-3D-logo.png" />
 </head>
 <body>
 <style>
@@ -47,7 +47,7 @@ text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc,
     const productselected = localStorage.getItem("productselected");
     const extraproductinfo = localStorage.getItem("productextrainfo");
     
-    document.getElementById("product-image").src = productselected + ".png";
+    document.getElementById("product-image").src = "../" + productselected + ".png";
     document.getElementById("productname").textContent = productselected
     document.getElementById("productinfo").textContent = extraproductinfo
     //change stuff
